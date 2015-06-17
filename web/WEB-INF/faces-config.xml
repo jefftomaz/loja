@@ -11,5 +11,9 @@
             <base-name>/en_us</base-name>
             <var>bundle</var>
         </resource-bundle>
+        <resource-bundle>
+            <base-name>/pt_br</base-name>
+            <var>pt_br</var>
+        </resource-bundle>
     </application>
 </faces-config>

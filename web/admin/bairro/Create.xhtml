@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.CreateBairroTitle}"></h:outputText>
+            <h:outputText value="#{pt_br.CreateBairroTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -15,23 +15,23 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateBairroLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{bairroController.selected.id}" title="#{bundle.CreateBairroTitle_id}" required="true" requiredMessage="#{bundle.CreateBairroRequiredMessage_id}"/>
-                    <h:outputLabel value="#{bundle.CreateBairroLabel_nome}" for="nome" />
-                    <h:inputText id="nome" value="#{bairroController.selected.nome}" title="#{bundle.CreateBairroTitle_nome}" required="true" requiredMessage="#{bundle.CreateBairroRequiredMessage_nome}"/>
-                    <h:outputLabel value="#{bundle.CreateBairroLabel_idSer}" for="idSer" />
-                    <h:selectOneMenu id="idSer" value="#{bairroController.selected.idSer}" title="#{bundle.CreateBairroTitle_idSer}" required="true" requiredMessage="#{bundle.CreateBairroRequiredMessage_idSer}">
+                    <h:outputLabel value="#{pt_br.CreateBairroLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{bairroController.selected.id}" title="#{pt_br.CreateBairroTitle_id}" required="true" requiredMessage="#{pt_br.CreateBairroRequiredMessage_id}"/>
+                    <h:outputLabel value="#{pt_br.CreateBairroLabel_nome}" for="nome" />
+                    <h:inputText id="nome" value="#{bairroController.selected.nome}" title="#{pt_br.CreateBairroTitle_nome}" required="true" requiredMessage="#{pt_br.CreateBairroRequiredMessage_nome}"/>
+                    <h:outputLabel value="#{pt_br.CreateBairroLabel_idSer}" for="idSer" />
+                    <h:selectOneMenu id="idSer" value="#{bairroController.selected.idSer}" title="#{pt_br.CreateBairroTitle_idSer}" required="true" requiredMessage="#{pt_br.CreateBairroRequiredMessage_idSer}">
                         <f:selectItems value="#{serController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{bairroController.create}" value="#{bundle.CreateBairroSaveLink}" />
+                <h:commandLink action="#{bairroController.create}" value="#{pt_br.CreateBairroSaveLink}" />
                 <br />
                 <br />
-                <h:commandLink action="#{bairroController.prepareList}" value="#{bundle.CreateBairroShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{bairroController.prepareList}" value="#{pt_br.CreateBairroShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateBairroIndexLink}"/>
+                <h:link outcome="/index" value="#{pt_br.CreateBairroIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>
