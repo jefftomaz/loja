@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditProdutoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditProdutoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{produtoController.selected.id}" title="#{bundle.EditProdutoTitle_id}" required="true" requiredMessage="#{bundle.EditProdutoRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditProdutoLabel_nome}" for="nome" />
+                    <h:inputText id="nome" value="#{produtoController.selected.nome}" title="#{bundle.EditProdutoTitle_nome}" required="true" requiredMessage="#{bundle.EditProdutoRequiredMessage_nome}"/>
+                    <h:outputLabel value="#{bundle.EditProdutoLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{produtoController.selected.valor}" title="#{bundle.EditProdutoTitle_valor}" required="true" requiredMessage="#{bundle.EditProdutoRequiredMessage_valor}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{produtoController.update}" value="#{bundle.EditProdutoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditProdutoViewLink}"/>
+                <br />
+                <h:commandLink action="#{produtoController.prepareList}" value="#{bundle.EditProdutoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditProdutoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewVendasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewVendasLabel_id}"/>
+                    <h:outputText value="#{vendasController.selected.id}" title="#{bundle.ViewVendasTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewVendasLabel_qtd}"/>
+                    <h:outputText value="#{vendasController.selected.qtd}" title="#{bundle.ViewVendasTitle_qtd}"/>
+                    <h:outputText value="#{bundle.ViewVendasLabel_idProduto}"/>
+                    <h:outputText value="#{vendasController.selected.idProduto}" title="#{bundle.ViewVendasTitle_idProduto}"/>
+                    <h:outputText value="#{bundle.ViewVendasLabel_idCliente}"/>
+                    <h:outputText value="#{vendasController.selected.idCliente}" title="#{bundle.ViewVendasTitle_idCliente}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{vendasController.destroyAndView}" value="#{bundle.ViewVendasDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewVendasEditLink}"/>
+                <br />
+                <h:commandLink action="#{vendasController.prepareCreate}" value="#{bundle.ViewVendasCreateLink}" />
+                <br />
+                <h:commandLink action="#{vendasController.prepareList}" value="#{bundle.ViewVendasShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewVendasIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

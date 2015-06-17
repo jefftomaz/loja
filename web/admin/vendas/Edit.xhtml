@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditVendasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditVendasLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{vendasController.selected.id}" title="#{bundle.EditVendasTitle_id}" required="true" requiredMessage="#{bundle.EditVendasRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditVendasLabel_qtd}" for="qtd" />
+                    <h:inputText id="qtd" value="#{vendasController.selected.qtd}" title="#{bundle.EditVendasTitle_qtd}" required="true" requiredMessage="#{bundle.EditVendasRequiredMessage_qtd}"/>
+                    <h:outputLabel value="#{bundle.EditVendasLabel_idProduto}" for="idProduto" />
+                    <h:selectOneMenu id="idProduto" value="#{vendasController.selected.idProduto}" title="#{bundle.EditVendasTitle_idProduto}" required="true" requiredMessage="#{bundle.EditVendasRequiredMessage_idProduto}">
+                        <f:selectItems value="#{produtoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditVendasLabel_idCliente}" for="idCliente" />
+                    <h:selectOneMenu id="idCliente" value="#{vendasController.selected.idCliente}" title="#{bundle.EditVendasTitle_idCliente}" required="true" requiredMessage="#{bundle.EditVendasRequiredMessage_idCliente}">
+                        <f:selectItems value="#{clienteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{vendasController.update}" value="#{bundle.EditVendasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditVendasViewLink}"/>
+                <br />
+                <h:commandLink action="#{vendasController.prepareList}" value="#{bundle.EditVendasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditVendasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
