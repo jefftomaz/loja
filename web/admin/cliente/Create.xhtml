@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -11,22 +12,21 @@
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                <p:messages closable="true"/>
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateClienteLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{clienteController.selected.id}" title="#{bundle.CreateClienteTitle_id}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_id}"/>
+                    
                     <h:outputLabel value="#{bundle.CreateClienteLabel_nome}" for="nome" />
-                    <h:inputText id="nome" value="#{clienteController.selected.nome}" title="#{bundle.CreateClienteTitle_nome}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_nome}"/>
+                    <p:inputText id="nome" value="#{clienteController.selected.nome}" title="#{bundle.CreateClienteTitle_nome}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_nome}"/>
                     <h:outputLabel value="#{bundle.CreateClienteLabel_endereco}" for="endereco" />
-                    <h:inputText id="endereco" value="#{clienteController.selected.endereco}" title="#{bundle.CreateClienteTitle_endereco}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_endereco}"/>
+                    <p:inputText id="endereco" value="#{clienteController.selected.endereco}" title="#{bundle.CreateClienteTitle_endereco}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_endereco}"/>
                     <h:outputLabel value="#{bundle.CreateClienteLabel_telefone}" for="telefone" />
-                    <h:inputText id="telefone" value="#{clienteController.selected.telefone}" title="#{bundle.CreateClienteTitle_telefone}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_telefone}"/>
+                    <p:inputMask mask="(99)99999-9999" id="telefone" value="#{clienteController.selected.telefone}" title="#{bundle.CreateClienteTitle_telefone}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_telefone}"/>
                     <h:outputLabel value="#{bundle.CreateClienteLabel_idBairro}" for="idBairro" />
-                    <h:selectOneMenu id="idBairro" value="#{clienteController.selected.idBairro}" title="#{bundle.CreateClienteTitle_idBairro}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_idBairro}">
+                    <p:selectOneMenu id="idBairro" value="#{clienteController.selected.idBairro}" title="#{bundle.CreateClienteTitle_idBairro}" required="true" requiredMessage="#{bundle.CreateClienteRequiredMessage_idBairro}">
                         <f:selectItems value="#{bairroController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{clienteController.create}" value="#{bundle.CreateClienteSaveLink}" />

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -11,18 +12,18 @@
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                <p:messages closable="true"/>
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{pt_br.CreateBairroLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{bairroController.selected.id}" title="#{pt_br.CreateBairroTitle_id}" required="true" requiredMessage="#{pt_br.CreateBairroRequiredMessage_id}"/>
+                    <p:inputText id="id" value="#{bairroController.selected.id}" title="#{pt_br.CreateBairroTitle_id}" required="true" requiredMessage="#{pt_br.CreateBairroRequiredMessage_id}"/>
                     <h:outputLabel value="#{pt_br.CreateBairroLabel_nome}" for="nome" />
-                    <h:inputText id="nome" value="#{bairroController.selected.nome}" title="#{pt_br.CreateBairroTitle_nome}" required="true" requiredMessage="#{pt_br.CreateBairroRequiredMessage_nome}"/>
+                    <p:inputText id="nome" value="#{bairroController.selected.nome}" title="#{pt_br.CreateBairroTitle_nome}" required="true" requiredMessage="#{pt_br.CreateBairroRequiredMessage_nome}"/>
                     <h:outputLabel value="#{pt_br.CreateBairroLabel_idSer}" for="idSer" />
-                    <h:selectOneMenu id="idSer" value="#{bairroController.selected.idSer}" title="#{pt_br.CreateBairroTitle_idSer}" required="true" requiredMessage="#{pt_br.CreateBairroRequiredMessage_idSer}">
+                    <p:selectOneMenu id="idSer" value="#{bairroController.selected.idSer}" title="#{pt_br.CreateBairroTitle_idSer}" required="true" requiredMessage="#{pt_br.CreateBairroRequiredMessage_idSer}">
                         <f:selectItems value="#{serController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{bairroController.create}" value="#{pt_br.CreateBairroSaveLink}" />

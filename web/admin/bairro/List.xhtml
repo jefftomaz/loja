@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -19,26 +20,26 @@
                     <h:outputText value="#{bairroController.pagination.pageFirstItem + 1}..#{bairroController.pagination.pageLastItem + 1}/#{bairroController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{bairroController.previous}" value="#{bundle.Previous} #{bairroController.pagination.pageSize}" rendered="#{bairroController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{bairroController.next}" value="#{bundle.Next} #{bairroController.pagination.pageSize}" rendered="#{bairroController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{bairroController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
+                    <p:dataTable value="#{bairroController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <p:column sortBy="#{item.id}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBairroTitle_id}"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column sortBy="#{item.nome}">
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBairroTitle_nome}"/>
                             </f:facet>
                             <h:outputText value="#{item.nome}"/>
-                        </h:column>
-                        <h:column>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListBairroTitle_idSer}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idSer}"/>
-                        </h:column>
-                        <h:column>
+                            <h:outputText value="#{item.idSer.nome}"/>
+                        </p:column>
+                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
@@ -47,8 +48,8 @@
                             <h:commandLink action="#{bairroController.prepareEdit}" value="#{bundle.ListBairroEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{bairroController.destroy}" value="#{bundle.ListBairroDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
+                        </p:column>
+                    </p:dataTable>
                 </h:panelGroup>
                 <br />
                 <h:commandLink action="#{bairroController.prepareCreate}" value="#{bundle.ListBairroCreateLink}"/>
